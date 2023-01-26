@@ -71,5 +71,10 @@ public class Program {
          * -Вернуть первый элемент, удовлетворяющий условиям задачи
          * -Вернуть все элементы, удовлетворяющие условиям задачи, используя дополнительный массив
          */
+        int[] array27 = new int[]{9, 1, 2, 6, 6, 7, 8, 1, 2};
+        /*System.out.println("frequent for " + Arrays.toString(array27));
+        System.out.println(arrayUtil.frequent(array27));*/
+        System.out.println("multiple frequent for " + Arrays.toString(array27));
+        System.out.println(Arrays.toString(arrayUtil.multipleFrequent(array27)));
     }
 }

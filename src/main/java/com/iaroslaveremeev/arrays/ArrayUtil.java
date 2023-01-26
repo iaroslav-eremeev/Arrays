@@ -81,4 +81,88 @@ public class ArrayUtil {
         }
         else return null;
     }
+
+    /**
+     * 27. frequent
+     * Дан массив целых чисел. Не изменяя массива определить, какое число в этом массиве встречается чаще всего.
+     * Если таких чисел несколько, выведите см. способы реализации.
+     * Решение оформить двумя способами:
+     * -Вернуть первый элемент, удовлетворяющий условиям задачи
+     * -Вернуть все элементы, удовлетворяющие условиям задачи, используя дополнительный массив
+     */
+    public int frequent(int[] array){
+        if (array.length > 0){
+            int frequent = array[0];
+            int frequentCount = 1;
+            boolean atLeastTwoFrequents = false;
+            for (int i : array) {
+                int iCount = 0;
+                for (int j : array) {
+                    if (i == j) iCount++;
+                }
+                if (iCount > frequentCount) {
+                    frequent = i;
+                    frequentCount = iCount;
+                    atLeastTwoFrequents = false;
+                }
+                else if (iCount == frequentCount) atLeastTwoFrequents = true;
+            }
+            if (atLeastTwoFrequents) throw new IllegalArgumentException("There are at least two frequents in the array. " +
+                    "\nYou should use multipleFrequent(array) instead");
+            return frequent;
+        }
+        else throw new IllegalArgumentException("Array is empty!");
+    }
+
+    public int[] multipleFrequent(int[] array){
+        int frequentCount = 1;
+        for (int i : array) {
+            int iCount = 0;
+            for (int j : array) {
+                if (i == j) iCount++;
+            }
+            if (iCount > frequentCount) {
+                frequentCount = iCount;
+            }
+        }
+        int frequentsNumber = 0;
+        for (int i = 0; i < array.length; i++) {
+            int iCount = 0;
+            for (int j = 0; j < array.length; j++) {
+                if (array[i] == array[j]) iCount++;
+            }
+            if (iCount == frequentCount) {
+                boolean repeat = false;
+                for (int k = 0; k < i; k++) {
+                    if (array[k] == array[i]){
+                        repeat = true;
+                    }
+                }
+                if (!repeat) frequentsNumber++;
+            }
+        }
+        if (frequentsNumber < array.length){
+            int[] frequentsArray = new int[frequentsNumber];
+            for (int i = 0, frArI = 0; i < array.length; i++) {
+                int iCount = 0;
+                for (int j = 0; j < array.length; j++) {
+                    if (array[i] == array[j]) iCount++;
+                }
+                if (iCount == frequentCount) {
+                    boolean repeat = false;
+                    for (int k = 0; k < i; k++) {
+                        if (array[k] == array[i]){
+                            repeat = true;
+                        }
+                    }
+                    if (!repeat) {
+                        frequentsArray[frArI] = array[i];
+                        frArI++;
+                    }
+                }
+            }
+            return frequentsArray;
+        }
+        else return array;
+    }
 }
