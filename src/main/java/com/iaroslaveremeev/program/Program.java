@@ -3,6 +3,7 @@ package com.iaroslaveremeev.program;
 import com.iaroslaveremeev.arrays.ArrayUtil;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Program {
     public static void main(String[] args) {
@@ -77,5 +78,23 @@ public class Program {
         int[] array37 = new int[]{1, 1, 1, 2, 2, 3, 5, 5};
         System.out.println("equalItems for " + Arrays.toString(array37));
         System.out.println(Arrays.deepToString(arrayUtil.equalItems(array37)));
+
+        /**
+         * 6. Дан массив типа Integer. Отсортировать его в порядке убывания. Использовать стандартные методы из языка
+         */
+        Integer[] array6 = new Integer[]{1, 11, 5, 7, 2, 3, 15, 25};
+        System.out.println("Descending sorting for " + Arrays.toString(array6));
+        Arrays.sort(array6, Collections.reverseOrder()); // descending sorting
+        System.out.println(Arrays.toString(array6));
+
+        /**
+         * Quick sort
+         */
+        int[] arrayQS = new int[]{1, 11, 5, 7, 2, 3, 15, 25};
+        System.out.println("Quick sort for " + Arrays.toString(arrayQS));
+        arrayUtil.quickSort(arrayQS, 0, arrayQS.length - 1);
+        System.out.println(Arrays.toString(arrayQS));
+
+
     }
 }
