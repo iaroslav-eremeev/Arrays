@@ -127,5 +127,22 @@ public class Program {
         int[] copiedArraySystem = new int[arrayToCopy.length + 2];
         System.arraycopy(arrayToCopy, 2, copiedArraySystem, 0, arrayToCopy.length - 3);
         System.out.println(Arrays.toString(copiedArraySystem));
+
+        /**
+         * 9. Отсортировать массив и найди индекс вхождения заданного ключа в отсортированном массиве.
+         * Использовать только стандартные методы языка
+         */
+        int[] arrayToFindKey = new int[]{1, 2, 10, 4, 6, 11, 3};
+        System.out.println("Finding key in the sorted array for " + Arrays.toString(arrayToFindKey));
+        Arrays.sort(arrayToFindKey);
+        System.out.println("Sorted: " + Arrays.toString(arrayToFindKey));
+        System.out.println(Arrays.binarySearch(arrayToFindKey, 10));
+
+        /**
+         * My own indexOf() for primitives (not sorted array)
+         */
+        int[] arrayToFindKey2 = new int[]{1, 2, 10, 4, 6, 11, 3};
+        System.out.println("Finding 6 in an unsorted array of ints " + Arrays.toString(arrayToFindKey2));
+        System.out.println(arrayUtil.indexOfPrimitive(arrayToFindKey2, 6));
     }
 }

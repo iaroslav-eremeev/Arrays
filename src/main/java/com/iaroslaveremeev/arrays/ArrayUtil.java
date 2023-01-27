@@ -253,4 +253,14 @@ public class ArrayUtil {
         return answer;
     }
 
+    /**
+     * 9. Отсортировать массив и найди индекс вхождения заданного ключа в отсортированном массиве.
+     * Использовать только стандартные методы языка
+     */
+    public int indexOfPrimitive(int[] array, int number){
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == number) return i;
+        }
+        return -1;
+    }
 }
