@@ -165,4 +165,24 @@ public class ArrayUtil {
         }
         else return array;
     }
+
+    /**
+     * 39. equalItems
+     * Дан массив. Найдите элементы, равные друг другу.
+     * Использовать массив для хранения элементов
+     * (для определения количества равных использовать метод из задачи  23)
+     */
+    public int[][] equalItems(int[] array){
+        int[][] answer = new int[countEqualPairs(array)][2];
+        for (int i = 0, k = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i] == array[j]) {
+                    answer[k][0] = array[i];
+                    answer[k][1] = array[j];
+                    k++;
+                }
+            }
+        }
+        return answer;
+    }
 }

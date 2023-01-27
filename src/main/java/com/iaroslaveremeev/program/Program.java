@@ -23,21 +23,12 @@ public class Program {
          */
 
         /**
-         * 39. equalItems
-         * Дан массив. Найдите элементы, равные друг другу.
-         *
-         * Решение оформить 2 способами:
-         * -использовать массив для хранения элементов(для определения количества равных использовать метод из задачи  23)
-         * -использовать ArrayList для накопления элементов
-         */
-
-        /**
          * 23. countEqualPairs без использования ArrayList
          * Дан массив целых чисел. Посчитайте, сколько в нем пар элементов, равных друг другу.
          * Считается, что любые два элемента, равные друг другу образуют одну пару, которую необходимо посчитать.
          */
         ArrayUtil arrayUtil = new ArrayUtil();
-        int[] array23 = new int[]{1, 1, 1, 1};
+        int[] array23 = new int[]{1, 1, 1, 2, 2, 3};
         System.out.println("countEqualPairs for " + Arrays.toString(array23));
         System.out.println(arrayUtil.countEqualPairs(array23));
 
@@ -76,5 +67,15 @@ public class Program {
         System.out.println(arrayUtil.frequent(array27));*/
         System.out.println("multiple frequent for " + Arrays.toString(array27));
         System.out.println(Arrays.toString(arrayUtil.multipleFrequent(array27)));
+
+        /**
+         * 39. equalItems
+         * Дан массив. Найдите элементы, равные друг другу.
+         * Использовать массив для хранения элементов
+         * (для определения количества равных использовать метод из задачи  23)
+         */
+        int[] array37 = new int[]{1, 1, 1, 2, 2, 3, 5, 5};
+        System.out.println("equalItems for " + Arrays.toString(array37));
+        System.out.println(Arrays.deepToString(arrayUtil.equalItems(array37)));
     }
 }
