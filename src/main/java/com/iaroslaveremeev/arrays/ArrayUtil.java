@@ -10,13 +10,16 @@ public class ArrayUtil {
      * Считается, что любые два элемента, равные друг другу образуют одну пару, которую необходимо посчитать.
      */
     public int countEqualPairs(int[] array){
-        int pairsNumber = 0;
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[i] == array[j]) pairsNumber++;
+        if (array.length > 0){
+            int pairsNumber = 0;
+            for (int i = 0; i < array.length; i++) {
+                for (int j = i + 1; j < array.length; j++) {
+                    if (array[i] == array[j]) pairsNumber++;
+                }
             }
+            return pairsNumber;
         }
-        return pairsNumber;
+        else return 0;
     }
 
     /**
@@ -55,31 +58,24 @@ public class ArrayUtil {
         if (array.length > 0){
             int answerArraySize = 0;
             int[] uniqueRepo = new int[array.length];
-            for (int i = 0; i < array.length; i++) {
-                boolean found = false;
-                for (int j = i + 1; j < array.length; j++) {
+            for (int i = 0, k = 0; i < array.length; i++) {
+                int iCounter = 0;
+                for (int j = 0; j < array.length; j++) {
                     if (array[i] == array[j]) {
-                        found = true;
-                        break;
+                        iCounter++;
+                        if(iCounter > 1){
+                            break;
+                        }
                     }
                 }
-                for (int j = i - 1; j >= 0; j--) {
-                    if (array[i] == array[j]) {
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found) {
-                    uniqueRepo[answerArraySize] = array[i];
+                if (iCounter == 1) {
                     answerArraySize++;
+                    uniqueRepo[k] = array[i];
+                    k++;
                 }
             }
-            if (answerArraySize < array.length){
-                int[] uniqueAnswerArray = new int[answerArraySize];
-                System.arraycopy(uniqueRepo, 0, uniqueAnswerArray, 0, answerArraySize);
-                return uniqueAnswerArray;
-            }
-            else return array;
+            return Arrays.stream(uniqueRepo).limit(answerArraySize).toArray();
+            // или создали бы копию массива, обрубив незаполненные индексы
         }
         else return null;
     }
