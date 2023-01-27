@@ -103,5 +103,20 @@ public class Program {
         arrayUtil.quickSortReverse(arrayQSR, 0, arrayQSR.length - 1);
         System.out.println(Arrays.toString(arrayQSR));
 
+        /**
+         * 7. Дан массив. Произвести его копирование с указанием новой длины. Использовать стандартные методы из языка
+         */
+        int[] arrayToCopy = new int[]{1, 2, 5, 3, 10, 11, 10};
+        System.out.println("Copying array " + Arrays.toString(arrayToCopy));
+        int[] copiedArray = Arrays.copyOf(arrayToCopy, arrayToCopy.length);
+        System.out.println(Arrays.toString(copiedArray));
+
+        System.out.println("Copying part of array " + Arrays.toString(arrayToCopy) + " with copyArray method");
+        int[] copiedArray2 = arrayUtil.copyArray(arrayToCopy, 4);
+        System.out.println(Arrays.toString(copiedArray2));
+        System.out.println("Copying array " + Arrays.toString(arrayToCopy) +
+                " with copyArray method but new array is bigger");
+        int[] copiedArray3 = arrayUtil.copyArray(arrayToCopy, 15);
+        System.out.println(Arrays.toString(copiedArray3));
     }
 }

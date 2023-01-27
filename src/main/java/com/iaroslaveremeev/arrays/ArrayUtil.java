@@ -238,4 +238,18 @@ public class ArrayUtil {
             quickSortReverse(array, partitionIndex + 1, high);
         }
     }
+
+    /**
+     * 7. Дан массив. Произвести его копирование с указанием новой длины. Использовать стандартные методы из языка
+     */
+    public int[] copyArray(int[] array, int newLength){
+        int[] answer = new int[newLength];
+        for (int i = 0; i < newLength; i++) {
+            if (i < array.length){
+                answer[i] = array[i];
+            }
+            else answer[i] = 0;
+        }
+        return answer;
+    }
 }
