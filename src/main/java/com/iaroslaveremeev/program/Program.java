@@ -95,6 +95,13 @@ public class Program {
         arrayUtil.quickSort(arrayQS, 0, arrayQS.length - 1);
         System.out.println(Arrays.toString(arrayQS));
 
+        /**
+         * Quick sort in reverse order
+         */
+        int[] arrayQSR = new int[]{1, 11, 5, 7, 2, 3, 15, 25};
+        System.out.println("Reverse quick sort for " + Arrays.toString(arrayQSR));
+        arrayUtil.quickSortReverse(arrayQSR, 0, arrayQSR.length - 1);
+        System.out.println(Arrays.toString(arrayQSR));
 
     }
 }

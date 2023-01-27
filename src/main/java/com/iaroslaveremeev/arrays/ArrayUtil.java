@@ -216,4 +216,26 @@ public class ArrayUtil {
         }
     }
 
+    /**
+     * Quick sort in reverse order
+     */
+    public int partitionReverse(int[] array, int low, int high){
+        int pivot = array[high];
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            if (array[j] > pivot){
+                i++;
+                swap(array, i, j);
+            }
+        }
+        swap(array, i + 1, high);
+        return (i + 1);
+    }
+    public void quickSortReverse(int[] array, int low, int high){
+        if (low < high){
+            int partitionIndex = partitionReverse(array, low, high);
+            quickSortReverse(array, low, partitionIndex - 1);
+            quickSortReverse(array, partitionIndex + 1, high);
+        }
+    }
 }
