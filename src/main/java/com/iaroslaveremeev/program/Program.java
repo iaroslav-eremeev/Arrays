@@ -118,5 +118,14 @@ public class Program {
                 " with copyArray method but new array is bigger");
         int[] copiedArray3 = arrayUtil.copyArray(arrayToCopy, 15);
         System.out.println(Arrays.toString(copiedArray3));
+
+        /**
+         * 8. Используя System.arrayCopy скопировать массив в новый массив, вставляя данные с позиции k.
+         * Размер массива результата должен быть явно больше размера исходного массива
+         */
+        System.out.println("Copying array " + Arrays.toString(arrayToCopy) + " from index 2");
+        int[] copiedArraySystem = new int[arrayToCopy.length + 2];
+        System.arraycopy(arrayToCopy, 2, copiedArraySystem, 0, arrayToCopy.length - 3);
+        System.out.println(Arrays.toString(copiedArraySystem));
     }
 }
